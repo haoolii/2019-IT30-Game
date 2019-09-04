@@ -1,1 +1,3 @@
-console.log('SUCCESS')
+import Game from '@/Game'
+
+new Game()

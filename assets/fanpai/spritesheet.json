@@ -1,0 +1,178 @@
+{
+	"frames": {
+		"fanpai_01.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 252,
+				"h": 116
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 252,
+				"h": 116
+			},
+			"sourceSize": {
+				"w": 252,
+				"h": 116
+			}
+		},
+		"fanpai_02.png": {
+			"frame": {
+				"x": 1,
+				"y": 119,
+				"w": 230,
+				"h": 114
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 230,
+				"h": 114
+			},
+			"sourceSize": {
+				"w": 230,
+				"h": 114
+			}
+		},
+		"fanpai_03.png": {
+			"frame": {
+				"x": 1,
+				"y": 235,
+				"w": 209,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 209,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 209,
+				"h": 106
+			}
+		},
+		"fanpai_04.png": {
+			"frame": {
+				"x": 1,
+				"y": 343,
+				"w": 219,
+				"h": 96
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 219,
+				"h": 96
+			},
+			"sourceSize": {
+				"w": 219,
+				"h": 96
+			}
+		},
+		"fanpai_05.png": {
+			"frame": {
+				"x": 1,
+				"y": 441,
+				"w": 219,
+				"h": 87
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 219,
+				"h": 87
+			},
+			"sourceSize": {
+				"w": 219,
+				"h": 87
+			}
+		},
+		"fanpai_06.png": {
+			"frame": {
+				"x": 1,
+				"y": 530,
+				"w": 219,
+				"h": 94
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 219,
+				"h": 94
+			},
+			"sourceSize": {
+				"w": 219,
+				"h": 94
+			}
+		},
+		"fanpai_07.png": {
+			"frame": {
+				"x": 1,
+				"y": 626,
+				"w": 217,
+				"h": 103
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 217,
+				"h": 103
+			},
+			"sourceSize": {
+				"w": 217,
+				"h": 103
+			}
+		},
+		"fanpai_08.png": {
+			"frame": {
+				"x": 1,
+				"y": 731,
+				"w": 219,
+				"h": 159
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 219,
+				"h": 159
+			},
+			"sourceSize": {
+				"w": 219,
+				"h": 159
+			}
+		}
+	},
+	"animations": {
+		"fanpai": ["fanpai_01.png","fanpai_02.png","fanpai_03.png","fanpai_04.png","fanpai_05.png","fanpai_06.png","fanpai_07.png","fanpai_08.png"]
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 254,
+			"h": 891
+		},
+		"scale": "1"
+	}
+}
