@@ -2,43 +2,63 @@ import Loader from '@/loaders/Loader'
 import imagePath from '@/config/imagePath'
 import Wrapper from '@/components/elements/Wrapper'
 import WrapperContainer from '@/components/elements/WrapperContainer'
-import Chip from '@/components/objects/Chip'
-import chipType from '@/config/chipType'
+import loadingPath from '@/config/loadingPath'
+import Casino from '@/components/groups/Casino'
+import Loading from '@/components/groups/Loading'
 
 export default class Game {
   private _app: PIXI.Application
   private _game: Wrapper
+  private _loading: Wrapper
+
   constructor() {
     this._app = new PIXI.Application({ width: 1625, height: 900 })
     this._game = new WrapperContainer()
+
+    this._loading = new WrapperContainer()
+    this._game.addChild(this._loading)
+
     this._app.stage.addChild(this._game.getContainer())
     document.body.appendChild(this._app.view)
 
 
-    Loader.load(imagePath)
-      .on((e: number) => {
-        console.log(e)
+    // 先load載入頁面
+    this.loadimage(loadingPath)
+      .then(() => {
+        // 再load所有圖片
+        return this.loadimage(imagePath, 0)
       })
       .then(() => {
-        this.done()
-      })
-      .catch(err => {
-        console.warn(err)
+        this.setup()
       })
   }
 
-  public done() {
-    let _chipType: Array<keyof typeof chipType> = ['1000', '10000', '100000', '1000000', '10000000', '5000000']
+  private setup(): void {
+    let casino = new Casino()
 
-    // 噴射
-    setInterval(() => {
-      let chip = new Chip(_chipType[Math.ceil(Math.random() * 6)])
-  
-      chip.setPosition({ animation: true, during: Math.ceil(Math.random() * 6) },
-        Math.ceil(Math.random() * 1625),
-        Math.ceil(Math.random() * 900))
-
-      this._game.addChild(chip)
-    }, 100)
+    this._game.addContainer(casino.getContainer())
   }
+
+  private loadimage(imagePath: any, delay?: number): Promise<any> {
+    return new Promise((resolve, reject) => {
+      try {
+        let loading = new Loading()
+        this._loading.addChild(loading)
+        Loader.load(imagePath)
+          .on((e: number) => {
+            loading.update(e * 100)
+          })
+          .then(() => {
+            return loading.done(delay)
+          })
+          .then(() => {
+            this._loading.removeChildren()
+            resolve()
+          })
+      } catch (err) {
+        reject(err)
+      }
+    })
+  }
+
 }
