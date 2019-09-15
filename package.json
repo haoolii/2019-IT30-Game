@@ -4,8 +4,8 @@
   "description": "",
   "main": "./src/App.ts",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server",
-    "build": "node_modules/.bin/webpack",
+    "start": "set NODE_ENV=development && webpack-dev-server",
+    "build": "set NODE_ENV=production && webpack",
     "build:watch": "node_modules/.bin/webpack -w",
     "clean": "rm ./dist/*"
   },

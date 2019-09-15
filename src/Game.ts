@@ -29,13 +29,14 @@ export default class Game {
         return this.loadimage(imagePath, 0)
       })
       .then(() => {
+        return this.loadInfo()
+      }).then(() => {
         this.setup()
       })
   }
 
   private setup(): void {
     let casino = new Casino()
-
     this._game.addContainer(casino.getContainer())
   }
 
@@ -61,4 +62,10 @@ export default class Game {
     })
   }
 
+  private loadInfo() {
+    return new Promise((resolve, reject) => {
+      let user = localStorage.getItem('user')
+      resolve()
+    })
+  }
 }

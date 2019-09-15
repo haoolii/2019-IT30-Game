@@ -1,6 +1,8 @@
 import Wrapper from '@/components/elements/Wrapper'
 import WrapperContainerCenter from '@/components/elements/WrapperContainerCenter'
+import * as WrapperType from '@/components/elements/WrapperType'
 import DeskHover from '@/components/objects/DeskHover'
+import Countdown from '@/components/objects/Countdown'
 import Desk from '@/components/objects/Desk'
 
 export default class Table extends WrapperContainerCenter {
@@ -13,6 +15,8 @@ export default class Table extends WrapperContainerCenter {
     private _deskHover_banker: DeskHover
     private _deskHover_bankerpair: DeskHover
     private _deskHover_player: DeskHover
+    private _countdown: Countdown
+
     constructor() {
         super()
         this._desk = new Desk()
@@ -24,6 +28,8 @@ export default class Table extends WrapperContainerCenter {
         this._deskHover_banker = new DeskHover('banker')
         this._deskHover_bankerpair = new DeskHover('bankerpair')
         this._deskHover_player = new DeskHover('player')
+        this._countdown = new Countdown()
+
         this.addChild(this._desk)
         this.addChild(this._deskHover_playerpair)
         this.addChild(this._deskHover_playerking)
@@ -33,6 +39,7 @@ export default class Table extends WrapperContainerCenter {
         this.addChild(this._deskHover_banker)
         this.addChild(this._deskHover_bankerpair)
         this.addChild(this._deskHover_player)
+        this.addChild(this._countdown)
 
         this.initPosition()
     }
@@ -81,6 +88,14 @@ export default class Table extends WrapperContainerCenter {
         this._deskHover_banker.setPosition({ animation: false }, config['banker'].x, config['banker'].y)
         this._deskHover_bankerpair.setPosition({ animation: false }, config['bankerpair'].x, config['bankerpair'].y)
         this._deskHover_player.setPosition({ animation: false }, config['player'].x, config['player'].y)
+        this._countdown.setPosition({ animation: false }, 590, 45)
     }
 
+    public setPosition(animationOpt: WrapperType.animationOpt, x: number, y: number): void {
+        this._centerContainer.setPosition(animationOpt, x, y)
+    }
+
+    public countdownStart(num: number) {
+        this._countdown.countdownStart(num)
+    }
 }
