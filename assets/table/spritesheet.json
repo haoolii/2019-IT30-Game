@@ -1,8 +1,308 @@
 {
 	"frames": {
-		"banker.png": {
+		"areabet0.png": {
 			"frame": {
 				"x": 1,
+				"y": 1,
+				"w": 16,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 19
+			}
+		},
+		"areabet1.png": {
+			"frame": {
+				"x": 19,
+				"y": 1,
+				"w": 11,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 11,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 11,
+				"h": 19
+			}
+		},
+		"areabet2.png": {
+			"frame": {
+				"x": 32,
+				"y": 1,
+				"w": 14,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 19
+			}
+		},
+		"areabet3.png": {
+			"frame": {
+				"x": 48,
+				"y": 1,
+				"w": 13,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 13,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 13,
+				"h": 19
+			}
+		},
+		"areabet4.png": {
+			"frame": {
+				"x": 63,
+				"y": 1,
+				"w": 15,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 15,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 15,
+				"h": 19
+			}
+		},
+		"areabet5.png": {
+			"frame": {
+				"x": 80,
+				"y": 1,
+				"w": 13,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 13,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 13,
+				"h": 19
+			}
+		},
+		"areabet6.png": {
+			"frame": {
+				"x": 95,
+				"y": 1,
+				"w": 14,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 19
+			}
+		},
+		"areabet7.png": {
+			"frame": {
+				"x": 111,
+				"y": 1,
+				"w": 13,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 13,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 13,
+				"h": 19
+			}
+		},
+		"areabet8.png": {
+			"frame": {
+				"x": 126,
+				"y": 1,
+				"w": 14,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 19
+			}
+		},
+		"areabet9.png": {
+			"frame": {
+				"x": 142,
+				"y": 1,
+				"w": 14,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 19
+			}
+		},
+		"areabetcomma.png": {
+			"frame": {
+				"x": 158,
+				"y": 1,
+				"w": 8,
+				"h": 10
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 8,
+				"h": 10
+			},
+			"sourceSize": {
+				"w": 8,
+				"h": 10
+			}
+		},
+		"areabetdot.png": {
+			"frame": {
+				"x": 168,
+				"y": 1,
+				"w": 7,
+				"h": 7
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 7,
+				"h": 7
+			},
+			"sourceSize": {
+				"w": 7,
+				"h": 7
+			}
+		},
+		"areabete.png": {
+			"frame": {
+				"x": 177,
+				"y": 1,
+				"w": 22,
+				"h": 22
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 22,
+				"h": 22
+			},
+			"sourceSize": {
+				"w": 22,
+				"h": 22
+			}
+		},
+		"areabetslash.png": {
+			"frame": {
+				"x": 201,
+				"y": 1,
+				"w": 13,
+				"h": 21
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 13,
+				"h": 21
+			},
+			"sourceSize": {
+				"w": 13,
+				"h": 21
+			}
+		},
+		"areabetw.png": {
+			"frame": {
+				"x": 216,
+				"y": 1,
+				"w": 22,
+				"h": 21
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 22,
+				"h": 21
+			},
+			"sourceSize": {
+				"w": 22,
+				"h": 21
+			}
+		},
+		"banker.png": {
+			"frame": {
+				"x": 240,
 				"y": 1,
 				"w": 448,
 				"h": 304
@@ -22,8 +322,8 @@
 		},
 		"bankerking.png": {
 			"frame": {
-				"x": 451,
-				"y": 1,
+				"x": 1,
+				"y": 307,
 				"w": 346,
 				"h": 156
 			},
@@ -42,8 +342,8 @@
 		},
 		"bankerpair.png": {
 			"frame": {
-				"x": 451,
-				"y": 159,
+				"x": 349,
+				"y": 307,
 				"w": 420,
 				"h": 148
 			},
@@ -62,8 +362,8 @@
 		},
 		"count.png": {
 			"frame": {
-				"x": 1,
-				"y": 309,
+				"x": 349,
+				"y": 457,
 				"w": 234,
 				"h": 36
 			},
@@ -82,7 +382,7 @@
 		},
 		"countdown.png": {
 			"frame": {
-				"x": 799,
+				"x": 690,
 				"y": 1,
 				"w": 96,
 				"h": 95
@@ -102,7 +402,7 @@
 		},
 		"countdown0.png": {
 			"frame": {
-				"x": 897,
+				"x": 788,
 				"y": 1,
 				"w": 23,
 				"h": 33
@@ -122,8 +422,8 @@
 		},
 		"countdown1.png": {
 			"frame": {
-				"x": 897,
-				"y": 36,
+				"x": 813,
+				"y": 1,
 				"w": 17,
 				"h": 33
 			},
@@ -142,8 +442,8 @@
 		},
 		"countdown2.png": {
 			"frame": {
-				"x": 799,
-				"y": 98,
+				"x": 832,
+				"y": 1,
 				"w": 27,
 				"h": 33
 			},
@@ -162,8 +462,8 @@
 		},
 		"countdown3.png": {
 			"frame": {
-				"x": 897,
-				"y": 71,
+				"x": 861,
+				"y": 1,
 				"w": 22,
 				"h": 33
 			},
@@ -182,8 +482,8 @@
 		},
 		"countdown4.png": {
 			"frame": {
-				"x": 828,
-				"y": 98,
+				"x": 885,
+				"y": 1,
 				"w": 26,
 				"h": 32
 			},
@@ -202,8 +502,8 @@
 		},
 		"countdown5.png": {
 			"frame": {
-				"x": 856,
-				"y": 98,
+				"x": 1,
+				"y": 35,
 				"w": 25,
 				"h": 32
 			},
@@ -222,8 +522,8 @@
 		},
 		"countdown6.png": {
 			"frame": {
-				"x": 883,
-				"y": 106,
+				"x": 28,
+				"y": 35,
 				"w": 24,
 				"h": 33
 			},
@@ -242,8 +542,8 @@
 		},
 		"countdown7.png": {
 			"frame": {
-				"x": 873,
-				"y": 141,
+				"x": 54,
+				"y": 35,
 				"w": 26,
 				"h": 32
 			},
@@ -262,8 +562,8 @@
 		},
 		"countdown8.png": {
 			"frame": {
-				"x": 873,
-				"y": 175,
+				"x": 82,
+				"y": 35,
 				"w": 27,
 				"h": 33
 			},
@@ -282,8 +582,8 @@
 		},
 		"countdown9.png": {
 			"frame": {
-				"x": 873,
-				"y": 210,
+				"x": 111,
+				"y": 35,
 				"w": 24,
 				"h": 33
 			},
@@ -302,8 +602,8 @@
 		},
 		"countdownBeting.png": {
 			"frame": {
-				"x": 237,
-				"y": 309,
+				"x": 137,
+				"y": 36,
 				"w": 68,
 				"h": 26
 			},
@@ -322,8 +622,8 @@
 		},
 		"countdownPaying.png": {
 			"frame": {
-				"x": 307,
-				"y": 309,
+				"x": 788,
+				"y": 36,
 				"w": 65,
 				"h": 24
 			},
@@ -342,8 +642,8 @@
 		},
 		"dealer.png": {
 			"frame": {
-				"x": 374,
-				"y": 309,
+				"x": 788,
+				"y": 62,
 				"w": 98,
 				"h": 84
 			},
@@ -362,8 +662,8 @@
 		},
 		"endbet.png": {
 			"frame": {
-				"x": 474,
-				"y": 309,
+				"x": 1,
+				"y": 495,
 				"w": 346,
 				"h": 101
 			},
@@ -382,8 +682,8 @@
 		},
 		"player.png": {
 			"frame": {
-				"x": 1,
-				"y": 395,
+				"x": 349,
+				"y": 495,
 				"w": 449,
 				"h": 311
 			},
@@ -402,8 +702,8 @@
 		},
 		"playerking.png": {
 			"frame": {
-				"x": 452,
-				"y": 412,
+				"x": 913,
+				"y": 1,
 				"w": 345,
 				"h": 156
 			},
@@ -422,8 +722,8 @@
 		},
 		"playerpair.png": {
 			"frame": {
-				"x": 452,
-				"y": 570,
+				"x": 771,
+				"y": 159,
 				"w": 421,
 				"h": 158
 			},
@@ -442,8 +742,8 @@
 		},
 		"score0.png": {
 			"frame": {
-				"x": 822,
-				"y": 309,
+				"x": 1,
+				"y": 159,
 				"w": 63,
 				"h": 41
 			},
@@ -462,8 +762,8 @@
 		},
 		"score1.png": {
 			"frame": {
-				"x": 1,
-				"y": 352,
+				"x": 66,
+				"y": 159,
 				"w": 59,
 				"h": 41
 			},
@@ -482,8 +782,8 @@
 		},
 		"score2.png": {
 			"frame": {
-				"x": 62,
-				"y": 352,
+				"x": 127,
+				"y": 159,
 				"w": 60,
 				"h": 41
 			},
@@ -502,8 +802,8 @@
 		},
 		"score3.png": {
 			"frame": {
-				"x": 124,
-				"y": 352,
+				"x": 690,
+				"y": 159,
 				"w": 60,
 				"h": 41
 			},
@@ -522,8 +822,8 @@
 		},
 		"score4.png": {
 			"frame": {
-				"x": 186,
-				"y": 352,
+				"x": 1194,
+				"y": 159,
 				"w": 62,
 				"h": 41
 			},
@@ -542,8 +842,8 @@
 		},
 		"score5.png": {
 			"frame": {
-				"x": 250,
-				"y": 352,
+				"x": 1,
+				"y": 202,
 				"w": 61,
 				"h": 40
 			},
@@ -562,8 +862,8 @@
 		},
 		"score6.png": {
 			"frame": {
-				"x": 822,
-				"y": 352,
+				"x": 64,
+				"y": 202,
 				"w": 61,
 				"h": 41
 			},
@@ -582,8 +882,8 @@
 		},
 		"score7.png": {
 			"frame": {
-				"x": 822,
-				"y": 395,
+				"x": 127,
+				"y": 202,
 				"w": 60,
 				"h": 41
 			},
@@ -602,8 +902,8 @@
 		},
 		"score8.png": {
 			"frame": {
-				"x": 799,
-				"y": 438,
+				"x": 690,
+				"y": 202,
 				"w": 62,
 				"h": 41
 			},
@@ -622,8 +922,8 @@
 		},
 		"score9.png": {
 			"frame": {
-				"x": 799,
-				"y": 481,
+				"x": 1194,
+				"y": 202,
 				"w": 61,
 				"h": 41
 			},
@@ -642,8 +942,8 @@
 		},
 		"startbet.png": {
 			"frame": {
-				"x": 1,
-				"y": 730,
+				"x": 771,
+				"y": 319,
 				"w": 345,
 				"h": 95
 			},
@@ -662,8 +962,8 @@
 		},
 		"startendbet.png": {
 			"frame": {
-				"x": 348,
-				"y": 730,
+				"x": 1,
+				"y": 808,
 				"w": 510,
 				"h": 125
 			},
@@ -682,8 +982,8 @@
 		},
 		"tie.png": {
 			"frame": {
-				"x": 922,
-				"y": 1,
+				"x": 800,
+				"y": 416,
 				"w": 442,
 				"h": 187
 			},
@@ -702,8 +1002,8 @@
 		},
 		"tiepair.png": {
 			"frame": {
-				"x": 902,
-				"y": 190,
+				"x": 1,
+				"y": 605,
 				"w": 196,
 				"h": 163
 			},
@@ -722,8 +1022,8 @@
 		},
 		"totalbet.png": {
 			"frame": {
-				"x": 1100,
-				"y": 190,
+				"x": 800,
+				"y": 605,
 				"w": 239,
 				"h": 19
 			},
@@ -742,8 +1042,8 @@
 		},
 		"totalbet0.png": {
 			"frame": {
-				"x": 1341,
-				"y": 190,
+				"x": 189,
+				"y": 159,
 				"w": 12,
 				"h": 15
 			},
@@ -762,8 +1062,8 @@
 		},
 		"totalbet1.png": {
 			"frame": {
-				"x": 1355,
-				"y": 190,
+				"x": 1260,
+				"y": 1,
 				"w": 8,
 				"h": 15
 			},
@@ -782,8 +1082,8 @@
 		},
 		"totalbet2.png": {
 			"frame": {
-				"x": 1341,
-				"y": 207,
+				"x": 203,
+				"y": 159,
 				"w": 12,
 				"h": 15
 			},
@@ -802,8 +1102,8 @@
 		},
 		"totalbet3.png": {
 			"frame": {
-				"x": 1100,
-				"y": 224,
+				"x": 217,
+				"y": 159,
 				"w": 11,
 				"h": 15
 			},
@@ -822,8 +1122,8 @@
 		},
 		"totalbet4.png": {
 			"frame": {
-				"x": 1113,
-				"y": 224,
+				"x": 752,
+				"y": 159,
 				"w": 12,
 				"h": 15
 			},
@@ -842,8 +1142,8 @@
 		},
 		"totalbet5.png": {
 			"frame": {
-				"x": 1127,
-				"y": 224,
+				"x": 189,
+				"y": 202,
 				"w": 14,
 				"h": 15
 			},
@@ -862,8 +1162,8 @@
 		},
 		"totalbet6.png": {
 			"frame": {
-				"x": 1143,
-				"y": 224,
+				"x": 1258,
+				"y": 159,
 				"w": 12,
 				"h": 15
 			},
@@ -882,8 +1182,8 @@
 		},
 		"totalbet7.png": {
 			"frame": {
-				"x": 1157,
-				"y": 224,
+				"x": 189,
+				"y": 176,
 				"w": 11,
 				"h": 15
 			},
@@ -902,8 +1202,8 @@
 		},
 		"totalbet8.png": {
 			"frame": {
-				"x": 1170,
-				"y": 224,
+				"x": 202,
+				"y": 176,
 				"w": 12,
 				"h": 15
 			},
@@ -922,8 +1222,8 @@
 		},
 		"totalbet9.png": {
 			"frame": {
-				"x": 1184,
-				"y": 224,
+				"x": 216,
+				"y": 176,
 				"w": 11,
 				"h": 15
 			},
@@ -942,8 +1242,8 @@
 		},
 		"totalbetbet.png": {
 			"frame": {
-				"x": 1197,
-				"y": 224,
+				"x": 205,
+				"y": 202,
 				"w": 21,
 				"h": 19
 			},
@@ -962,8 +1262,8 @@
 		},
 		"totalbetcolon.png": {
 			"frame": {
-				"x": 1355,
-				"y": 207,
+				"x": 158,
+				"y": 18,
 				"w": 6,
 				"h": 11
 			},
@@ -982,8 +1282,8 @@
 		},
 		"totalbetcomma.png": {
 			"frame": {
-				"x": 1220,
-				"y": 220,
+				"x": 166,
+				"y": 18,
 				"w": 7,
 				"h": 6
 			},
@@ -1002,8 +1302,8 @@
 		},
 		"totalbetdot.png": {
 			"frame": {
-				"x": 1229,
-				"y": 220,
+				"x": 1260,
+				"y": 18,
 				"w": 4,
 				"h": 3
 			},
@@ -1022,8 +1322,8 @@
 		},
 		"totalbetdown.png": {
 			"frame": {
-				"x": 1235,
-				"y": 220,
+				"x": 1,
+				"y": 245,
 				"w": 20,
 				"h": 17
 			},
@@ -1042,8 +1342,8 @@
 		},
 		"totalbete.png": {
 			"frame": {
-				"x": 1257,
-				"y": 220,
+				"x": 23,
+				"y": 245,
 				"w": 19,
 				"h": 19
 			},
@@ -1062,8 +1362,8 @@
 		},
 		"totalbetslash.png": {
 			"frame": {
-				"x": 1278,
-				"y": 224,
+				"x": 1260,
+				"y": 23,
 				"w": 10,
 				"h": 15
 			},
@@ -1082,8 +1382,8 @@
 		},
 		"totalbettotal.png": {
 			"frame": {
-				"x": 1290,
-				"y": 220,
+				"x": 44,
+				"y": 245,
 				"w": 22,
 				"h": 19
 			},
@@ -1102,8 +1402,8 @@
 		},
 		"totalbetw.png": {
 			"frame": {
-				"x": 1314,
-				"y": 220,
+				"x": 68,
+				"y": 245,
 				"w": 20,
 				"h": 18
 			},
@@ -1127,8 +1427,8 @@
 		"image": "spritesheet.png",
 		"format": "RGBA8888",
 		"size": {
-			"w": 1365,
-			"h": 856
+			"w": 1271,
+			"h": 934
 		},
 		"scale": "1"
 	}

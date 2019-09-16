@@ -25,7 +25,7 @@ export default class DeskHover extends Sprite {
   /**
    * Override
    */
-  public setInteractive(interactive: boolean): void{
+  public setInteractive(interactive: boolean): void {
     this._hoveArea.interactive = interactive
     this._hoveArea.buttonMode = interactive
   }
