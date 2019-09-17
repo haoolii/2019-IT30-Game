@@ -4,6 +4,7 @@ import * as WrapperType from '@/components/elements/WrapperType'
 import DeskHover from '@/components/objects/DeskHover'
 import Countdown from '@/components/objects/Countdown'
 import Desk from '@/components/objects/Desk'
+import Dealer from '@/components/objects/Dealer'
 import TotalBetNumber from '@/components/objects/TotalBetNumber'
 import AreaBetNumber from '@/components/objects/AreaBetNumber'
 import * as dat from 'dat.gui'
@@ -18,6 +19,7 @@ export default class Table extends WrapperContainerCenter {
     private _deskHover_banker: DeskHover
     private _deskHover_bankerpair: DeskHover
     private _deskHover_player: DeskHover
+    private _dealer: Wrapper
     private _countdown: Countdown
     private _betNumber_total: TotalBetNumber
     private _betNumber_area_playerpair: AreaBetNumber
@@ -51,8 +53,8 @@ export default class Table extends WrapperContainerCenter {
         this._betNumber_area_banker = new AreaBetNumber(99954545)
         this._betNumber_area_bankerpair = new AreaBetNumber(99954545)
         this._betNumber_area_player = new AreaBetNumber(99954545)
-
         this._countdown = new Countdown()
+        this._dealer = new Dealer()
 
         this.addChild(this._desk)
         this.addChild(this._deskHover_playerpair)
@@ -73,9 +75,8 @@ export default class Table extends WrapperContainerCenter {
         this.addChild(this._betNumber_area_banker)
         this.addChild(this._betNumber_area_bankerpair)
         this.addChild(this._betNumber_area_player)
-
+        this.addChild(this._dealer)
         this.addChild(this._countdown)
-
         this.initPosition()
     }
 
@@ -124,6 +125,7 @@ export default class Table extends WrapperContainerCenter {
         this._deskHover_bankerpair.setPosition({ animation: false }, config['bankerpair'].x, config['bankerpair'].y)
         this._deskHover_player.setPosition({ animation: false }, config['player'].x, config['player'].y)
         this._countdown.setPosition({ animation: false }, 590, 35)
+        this._dealer.setPosition({ animation: false }, 830, 40)
 
         this._betNumber_total.setPosition({ animation: false }, 670, 130)
         this._betNumber_area_playerpair.setPosition({ animation: false }, 250, 165)
