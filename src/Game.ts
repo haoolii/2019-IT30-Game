@@ -14,13 +14,10 @@ export default class Game {
   constructor() {
     this._app = new PIXI.Application({ width: 1625, height: 900 })
     this._game = new WrapperContainer()
-
     this._loading = new WrapperContainer()
     this._game.addChild(this._loading)
-
     this._app.stage.addChild(this._game.getContainer())
     document.body.appendChild(this._app.view)
-
 
     // 先load載入頁面
     this.loadimage(loadingPath)
