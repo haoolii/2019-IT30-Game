@@ -2,6 +2,7 @@ export interface Action {
   type: string,
   payload?: any
 }
+
 export interface Store {
   getState: Function,
   dispatch(action: Action): void,

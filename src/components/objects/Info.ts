@@ -2,7 +2,7 @@ import WrapperContainer from '@/components/elements/WrapperContainer'
 import InfoMoneyNumber from '@/components/objects/InfoMoneyNumber'
 import Sprite from '@/components/elements/Sprite'
 import imagePath from '@/config/imagePath'
-
+import { store } from '@/store/index'
 export default class Info extends WrapperContainer {
   private _infoMoneyNumber: InfoMoneyNumber
   private _infoBg: Sprite
@@ -24,8 +24,11 @@ export default class Info extends WrapperContainer {
     this._moneyIcon.setPosition({ animation: false }, 10, 100)
     this._moneyIcon.setRotation(false, -Math.PI * 0.5)
 
-    setInterval(() => {
-      this._infoMoneyNumber.updateNumber(Math.ceil(Math.random() * 900000))
-    }, 1000);
+    let _update = () => {
+      let { balance } = store.getState()
+      this._infoMoneyNumber.updateNumber(balance)
+    }
+    store.subscribe(_update)
+    _update()
   }
 }
