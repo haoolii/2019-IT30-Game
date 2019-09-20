@@ -4,22 +4,31 @@ import imagePath from '@/config/imagePath'
 export default class DeskHover extends Sprite {
   private _hoveArea: PIXI.Graphics
   private _type: string
+  private _status: boolean
 
   constructor(type: string) {
     super(imagePath.tablePath, type)
     this._hoveArea = new PIXI.Graphics()
     this._container.addChild(this._hoveArea)
+    this._status = false
     this._type = type
     this.drawHover()
     this.setInteractive(true)
     this.setAlpha(false, 0)
 
     this.on('mouseover', () => {
+      if (this._status) return
       this.setAlpha(true, 1)
     })
     this.on('mouseout', () => {
+      if (this._status) return
       this.setAlpha(true, 0)
     })
+  }
+
+  public setStatus(opt: boolean) {
+    this.setAlpha(true, opt ? 1 : 0)
+    this._status = opt
   }
 
   /**

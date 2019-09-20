@@ -1,6 +1,7 @@
 import WrapperContainerCenter from '@/components/elements/WrapperContainerCenter'
 import Wrapper from '@/components/elements/Wrapper'
 import Poker from '@/components/objects/Poker'
+import PokerResult from '@/components/objects/PokerResult'
 import PokerPoint from '@/components/objects/PokerPoint'
 import PokerWin from '@/components/objects/PokerWin'
 import * as dat from 'dat.gui'
@@ -11,6 +12,7 @@ export default class Pokers extends WrapperContainerCenter {
   private _pokerPoint: PokerPoint
   private _pokerWinWrapper: Wrapper
   private _pokerWin: PokerWin
+  private _pokerResultWrapper: Wrapper
   private _faiPiPos = {
     x: 0,
     y: 0
@@ -22,6 +24,7 @@ export default class Pokers extends WrapperContainerCenter {
     this._pokersWrapper = new WrapperContainerCenter()
     this._pokerPointWrapper = new WrapperContainerCenter()
     this._pokerWinWrapper = new WrapperContainerCenter()
+    this._pokerResultWrapper = new WrapperContainerCenter()
     this._pokerWin = new PokerWin()
     this._pokerPoint = new PokerPoint(0)
 
@@ -38,12 +41,14 @@ export default class Pokers extends WrapperContainerCenter {
       setTimeout(() => {
         this.displayPokerPoint()
         this.displayWin()
-      }, 1500);
+        this.displayResult()
+      }, 3000);
     }, 800)
 
     this.addChild(this._pokersWrapper)
     this.addChild(this._pokerPointWrapper)
     this.addChild(this._pokerWinWrapper)
+    this.addChild(this._pokerResultWrapper)
     this._pokersWrapper.setPosition({ animation: false }, 0, 150)
   }
 
@@ -85,7 +90,7 @@ export default class Pokers extends WrapperContainerCenter {
         y: 310
       },
       '2': {
-        x: 5,
+        x: 10,
         y: 310
       },
       '3': {
@@ -97,6 +102,26 @@ export default class Pokers extends WrapperContainerCenter {
     this._pokerPoint = new PokerPoint(score)
     this._pokerPointWrapper.addChild(this._pokerPoint)
     this._pokerPoint.setPosition({ animation: false }, pos[this._pokerList.length].x, pos[this._pokerList.length].y)
+  }
+
+  public displayResult() {
+    this._pokerResultWrapper.removeChildren()
+    let pos: any = {
+      '1': {
+        x: 35,
+        y: 220
+      },
+      '2': {
+        x: 20,
+        y: 230
+      },
+      '3': {
+        x: 0,
+        y: 230
+      }
+    }
+    this._pokerResultWrapper.addChild(new PokerResult('tiepair'))
+    this._pokerResultWrapper.setPosition({ animation: false }, pos[this._pokerList.length].x, pos[this._pokerList.length].y)
   }
 
   public displayWin() {

@@ -78,8 +78,42 @@ export default class Table extends WrapperContainerCenter {
         this.addChild(this._dealer)
         this.addChild(this._countdown)
         this.initPosition()
+
+        setTimeout(() => {
+            this.setDeskhover('bankerking', true)
+            this.setDeskhover('playerpair', true)
+            this.setDeskhover('banker', true)
+        }, 1000);
     }
 
+    public setDeskhover(deskHoverType: string, opt: boolean) {
+        switch (deskHoverType) {
+            case 'banker':
+                this._deskHover_banker.setStatus(opt)
+                break
+            case 'player':
+                this._deskHover_player.setStatus(opt)
+                break
+            case 'bankerpair':
+                this._deskHover_bankerpair.setStatus(opt)
+                break
+            case 'playerpair':
+                this._deskHover_playerpair.setStatus(opt)
+                break
+            case 'bankerking':
+                this._deskHover_bankerking.setStatus(opt)
+                break
+            case 'playerpair':
+                this._deskHover_bankerpair.setStatus(opt)
+                break
+            case 'tie':
+                this._deskHover_tie.setStatus(opt)
+                break
+            case 'tiepair':
+                this._deskHover_tiepair.setStatus(opt)
+                break
+        }
+    }
     private initPosition() {
         let config = {
             'playerpair': {

@@ -22,8 +22,8 @@
 		},
 		"flag.png": {
 			"frame": {
-				"x": 198,
-				"y": 1,
+				"x": 1,
+				"y": 199,
 				"w": 164,
 				"h": 62
 			},
@@ -43,7 +43,7 @@
 		"font.png": {
 			"frame": {
 				"x": 198,
-				"y": 65,
+				"y": 1,
 				"w": 75,
 				"h": 69
 			},
@@ -60,10 +60,50 @@
 				"h": 69
 			}
 		},
+		"king.png": {
+			"frame": {
+				"x": 198,
+				"y": 72,
+				"w": 64,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 38
+			}
+		},
+		"pair.png": {
+			"frame": {
+				"x": 198,
+				"y": 112,
+				"w": 66,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 66,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 66,
+				"h": 40
+			}
+		},
 		"star.png": {
 			"frame": {
 				"x": 275,
-				"y": 65,
+				"y": 1,
 				"w": 90,
 				"h": 93
 			},
@@ -79,6 +119,46 @@
 				"w": 90,
 				"h": 93
 			}
+		},
+		"tie.png": {
+			"frame": {
+				"x": 266,
+				"y": 96,
+				"w": 40,
+				"h": 43
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 43
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 43
+			}
+		},
+		"tiepair.png": {
+			"frame": {
+				"x": 198,
+				"y": 154,
+				"w": 102,
+				"h": 43
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 102,
+				"h": 43
+			},
+			"sourceSize": {
+				"w": 102,
+				"h": 43
+			}
 		}
 	},
 	"meta": {
@@ -88,7 +168,7 @@
 		"format": "RGBA8888",
 		"size": {
 			"w": 366,
-			"h": 198
+			"h": 262
 		},
 		"scale": "1"
 	}
