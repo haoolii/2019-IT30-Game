@@ -23,10 +23,15 @@ export default class Countdown extends Sprite {
     let interval = setInterval(() => {
       this.countdownNumber.removeChildren()
       this.countdownNumber.addChild(new CountdownNumber(--t))
-      if (t <= 0) { 
+      if (t <= 0) {
         this.state = false
-        clearInterval(interval) 
+        clearInterval(interval)
       }
     }, 1000)
+  }
+
+  public updateCountdown(time: number) {
+    this.countdownNumber.removeChildren()
+    this.countdownNumber.addChild(new CountdownNumber(time))
   }
 }

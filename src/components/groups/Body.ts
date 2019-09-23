@@ -3,6 +3,10 @@ import WrapperContainerCenter from '@/components/elements/WrapperContainerCenter
 import Table from '@/components/groups/Table'
 import Pokers from '@/components/groups/Pokers'
 import WaitNextBetNotify from '@/components/objects/WaitNextBetNotify'
+import $io from '@/services/$io'
+import { store, actions } from '@/store/index'
+import cmd from '@/cmd'
+import cst from '@/cst'
 import * as dat from 'dat.gui'
 
 export default class Body extends WrapperContainerCenter {
