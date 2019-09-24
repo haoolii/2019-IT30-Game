@@ -1,6 +1,6 @@
 import chipType from '@/config/chipType'
 export interface Action {
-  type: string,
+  type: string
   payload: any
 }
 
@@ -11,11 +11,16 @@ export interface chipPayload {
 export interface balancePayload {
   balance: Number
 }
+
+export interface betChipPayload {
+  betChip: Object
+}
 /*
  * action type
  */
 
 export const UPDATE_BALANCE = 'UPDATE_BALANCE'
+export const UPDATE_BET_CHIP = 'UPDATE_BET_CHIP'
 export const UPDATE_CHIP = 'UPDATE_CHIP'
 export const INIT = 'INIT'
 
@@ -25,6 +30,10 @@ export const INIT = 'INIT'
 
 export function updateBalance(payload: balancePayload) {
   return { type: UPDATE_BALANCE, payload }
+}
+
+export function updateBetChip(payload: betChipPayload) {
+  return { type: UPDATE_BET_CHIP, payload }
 }
 
 export function updateChip(payload: chipPayload) {

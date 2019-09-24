@@ -19,16 +19,14 @@ cst.TB_NTF_KICKOUT = '8'
 /*=================================================
   BET CST
 =================================================*/
-cst.BT_NTF_PAYOUT = '1'
-cst.BT_NTF_PAYOUT_BALANCE = '2'
+cst.BT_NTF_BETOUT = '1'
+cst.BT_NTF_BETOUT_BALANCE = '2'
+cst.BT_NTF_PAYOUT = '3'
+cst.BT_NTF_PAYOUT_BALANCE = '4'
 
 /*=================================================
   USER CST
 =================================================*/
-
-cst.BT_NTF_PAYOUT = '1'
-cst.BT_NTF_PAYOUT_BALANCE = '2'
-
 export default cst
 
 
