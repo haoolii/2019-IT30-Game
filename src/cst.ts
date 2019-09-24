@@ -27,6 +27,8 @@ cst.BT_NTF_PAYOUT_BALANCE = '4'
 /*=================================================
   USER CST
 =================================================*/
+cst.USER_NTF_INFO = '1'
+
 export default cst
 
 

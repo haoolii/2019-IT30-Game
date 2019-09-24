@@ -281,8 +281,4 @@ export default class Table extends WrapperContainerCenter {
   ): void {
     this._centerContainer.setPosition(animationOpt, x, y)
   }
-
-  public countdownStart(num: number) {
-    this._countdown.countdownStart(num)
-  }
 }

@@ -3,6 +3,7 @@ import WrapperContainerCenter from '@/components/elements/WrapperContainerCenter
 import Table from '@/components/groups/Table'
 import Pokers from '@/components/groups/Pokers'
 import WaitNextBetNotify from '@/components/objects/WaitNextBetNotify'
+import BetStatusNotify from '@/components/objects/BetStatusNotify'
 import ChipsLayer from '@/components/groups/ChipsLayer'
 import $io from '@/services/$io'
 import { store, actions } from '@/store/index'
@@ -16,6 +17,7 @@ export default class Body extends WrapperContainerCenter {
   private _pokersPlayer: Pokers
   private _pokersBanker: Pokers
   private _chipsLayer: ChipsLayer
+  private _betStatusntf: BetStatusNotify
   constructor() {
     super()
     let rect = new PIXI.Graphics()
@@ -29,6 +31,9 @@ export default class Body extends WrapperContainerCenter {
       this.height / 2 + 60
     )
     this._table.setScale(false, 1.2, 1.2)
+
+    this._betStatusntf = new BetStatusNotify()
+    this._betStatusntf.setPosition({ animation: false }, this.width / 2 - 270, this.height / 2 - 80)
 
     this._pokersPlayer = new Pokers()
     this._pokersPlayer.setFaipiPosition(360, -150)
@@ -46,6 +51,7 @@ export default class Body extends WrapperContainerCenter {
     this._centerContainer.addChild(this._chipsLayer)
     this._centerContainer.addChild(this._pokersPlayer)
     this._centerContainer.addChild(this._pokersBanker)
+    this._centerContainer.addChild(this._betStatusntf)
     notify.setPosition(
       { animation: false },
       this.width / 2 - 80,
@@ -53,24 +59,49 @@ export default class Body extends WrapperContainerCenter {
     )
 
     this.initIO()
+    this._betStatusntf.betNotifyStart()
   }
 
   public initIO() {
-    $io.on(cmd.MSG_BT_NTF, (reason: any, data: any) => {
+    $io.on(cmd.MSG_TB_NTF, (reason: any, data: any) => {
       switch (reason) {
-        case cst.BT_NTF_BETOUT:
-          console.log('cst.BT_NTF_BETOUT')
-          let _betChip = store.getState().betChip
-          store.dispatch(
-            actions.updateBetChip({ betChip: plusBet(_betChip, data.bet) })
-          )
-          this._chipsLayer.addBetChip('user', 'users', data.bet)
+        case cst.TB_NTF_COUNTDOWN_START:
+          this._betStatusntf.betNotifyStart()
           break
-        case cst.BT_NTF_BETOUT_BALANCE:
-          console.log('cst.BT_NTF_BETOUT_BALANCE')
-          store.dispatch(actions.updateBalance({ balance: data.balance }))
+        case cst.TB_NTF_COUNTDOWN_STOP:
+          this._betStatusntf.betNotifyEnd()
           break
       }
     })
+
+    $io.on(cmd.MSG_BT_NTF, (reason: any, data: any) => {
+      switch (reason) {
+        case cst.BT_NTF_BETOUT:
+          this.betout(data); break
+        case cst.BT_NTF_BETOUT_BALANCE:
+          store.dispatch(actions.updateBalance({ balance: data.balance })); break
+      }
+    })
+
+    $io.on(cmd.MSG_USER_NTF, (reason: any, data: any) => {
+      switch (reason) {
+        case cst.USER_NTF_INFO:
+          this.userInfo(data); break
+      }
+    })
+  }
+
+  public betout(data: any) {
+    let _betChip = store.getState().betChip
+    store.dispatch(
+      actions.updateBetChip({ betChip: plusBet(_betChip, data.bet) })
+    )
+    this._chipsLayer.addBetChip('user', 'users', data.bet)
+  }
+
+  public userInfo(data: any) {
+    store.dispatch(
+      actions.updateBalance({ balance: data.balance })
+    )
   }
 }
