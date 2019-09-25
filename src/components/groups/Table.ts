@@ -43,6 +43,7 @@ export default class Table extends WrapperContainerCenter {
   private _betNumber_area_banker: AreaBetNumber
   private _betNumber_area_bankerpair: AreaBetNumber
   private _betNumber_area_player: AreaBetNumber
+  private _bettingStatus: boolean = false
 
   constructor() {
     super()
@@ -95,9 +96,11 @@ export default class Table extends WrapperContainerCenter {
       switch (reason) {
         case cst.TB_NTF_COUNTDOWN_START:
           console.log('cst.TB_NTF_COUNTDOWN_START')
+          this._bettingStatus = true
           break
         case cst.TB_NTF_COUNTDOWN_STOP:
           console.log('cst.TB_NTF_COUNTDOWN_STOP')
+          this._bettingStatus = false
           break
         case cst.TB_NTF_COUNTDOWN_TIME:
           this._countdown.updateCountdown(data.countdown)
@@ -252,6 +255,7 @@ export default class Table extends WrapperContainerCenter {
     this._deskHover_player.onClick(() => this.betout('player'))
   }
   public betout(type: keyof typeof betType) {
+    if (!this._bettingStatus) return
     let _bet: typeof betType = {
       banker: 0,
       player: 0,

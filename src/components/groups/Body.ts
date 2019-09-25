@@ -18,6 +18,7 @@ export default class Body extends WrapperContainerCenter {
   private _pokersBanker: Pokers
   private _chipsLayer: ChipsLayer
   private _betStatusntf: BetStatusNotify
+  private _waitNextBetNotify: WaitNextBetNotify
   constructor() {
     super()
     let rect = new PIXI.Graphics()
@@ -33,7 +34,11 @@ export default class Body extends WrapperContainerCenter {
     this._table.setScale(false, 1.2, 1.2)
 
     this._betStatusntf = new BetStatusNotify()
-    this._betStatusntf.setPosition({ animation: false }, this.width / 2 - 270, this.height / 2 - 80)
+    this._betStatusntf.setPosition(
+      { animation: false },
+      this.width / 2 - 270,
+      this.height / 2 - 80
+    )
 
     this._pokersPlayer = new Pokers()
     this._pokersPlayer.setFaipiPosition(360, -150)
@@ -45,21 +50,33 @@ export default class Body extends WrapperContainerCenter {
 
     this._chipsLayer = new ChipsLayer()
 
-    let notify = new WaitNextBetNotify()
-    this._centerContainer.addChild(notify)
+    this._waitNextBetNotify = new WaitNextBetNotify()
     this._centerContainer.addChild(this._table)
     this._centerContainer.addChild(this._chipsLayer)
     this._centerContainer.addChild(this._pokersPlayer)
     this._centerContainer.addChild(this._pokersBanker)
     this._centerContainer.addChild(this._betStatusntf)
-    notify.setPosition(
+    this._centerContainer.addChild(this._waitNextBetNotify)
+
+    this._waitNextBetNotify.setPosition(
       { animation: false },
       this.width / 2 - 80,
       this.height / 2
     )
 
     this.initIO()
-    this._betStatusntf.betNotifyStart()
+    this.initChips()
+  }
+
+  public initChips() {
+    // 初始化時同步自己已下注的籌碼 直接模擬下注
+    $io.REQ_USER_BET_INFO().then((data: any) => {
+      let _betChip = store.getState().betChip
+      store.dispatch(
+        actions.updateBetChip({ betChip: plusBet(_betChip, data.bet) })
+      )
+      this._chipsLayer.addBetChip('bcr', 'users', data.bet)
+    })
   }
 
   public initIO() {
@@ -67,6 +84,8 @@ export default class Body extends WrapperContainerCenter {
       switch (reason) {
         case cst.TB_NTF_COUNTDOWN_START:
           this._betStatusntf.betNotifyStart()
+          this._waitNextBetNotify.setAlpha(true, 0)
+          setTimeout(() => this._waitNextBetNotify.removeChildren, 1000)
           break
         case cst.TB_NTF_COUNTDOWN_STOP:
           this._betStatusntf.betNotifyEnd()
@@ -77,16 +96,19 @@ export default class Body extends WrapperContainerCenter {
     $io.on(cmd.MSG_BT_NTF, (reason: any, data: any) => {
       switch (reason) {
         case cst.BT_NTF_BETOUT:
-          this.betout(data); break
+          this.betout(data)
+          break
         case cst.BT_NTF_BETOUT_BALANCE:
-          store.dispatch(actions.updateBalance({ balance: data.balance })); break
+          store.dispatch(actions.updateBalance({ balance: data.balance }))
+          break
       }
     })
 
     $io.on(cmd.MSG_USER_NTF, (reason: any, data: any) => {
       switch (reason) {
         case cst.USER_NTF_INFO:
-          this.userInfo(data); break
+          this.userInfo(data)
+          break
       }
     })
   }
@@ -100,8 +122,6 @@ export default class Body extends WrapperContainerCenter {
   }
 
   public userInfo(data: any) {
-    store.dispatch(
-      actions.updateBalance({ balance: data.balance })
-    )
+    store.dispatch(actions.updateBalance({ balance: data.balance }))
   }
 }

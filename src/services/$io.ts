@@ -34,6 +34,19 @@ let $io = (function() {
         })
       })
     },
+    REQ_USER_BET_INFO: function(data?: any) {
+      return new Promise((resolve, reject) => {
+        let _timeout = setTimeout(reject, timeout)
+        $io.emit(cmd.REQ_USER_BET_INFO, data)
+        $io.on(cmd.RES_USER_BET_INFO, (data: any) => {
+          if (data.error) {
+            reject(data.error)
+          }
+          resolve(data.result)
+          clearTimeout(_timeout)
+        })
+      })
+    },
     REQ_USER_LOGIN: function(data?: any) {
       return new Promise((resolve, reject) => {
         let _timeout = setTimeout(reject, timeout)
