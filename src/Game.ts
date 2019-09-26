@@ -21,7 +21,7 @@ export default class Game {
     this._app.stage.addChild(this._game.getContainer())
     document.body.appendChild(this._app.view)
 
-    $io.initalSocket('http://localhost:3087')
+    $io.initalSocket('http://localhost:3000')
     $io.on('connect', () => {
       console.log('connect')
     })
