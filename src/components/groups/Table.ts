@@ -8,9 +8,11 @@ import Dealer from '@/components/objects/Dealer'
 import TotalBetNumber from '@/components/objects/TotalBetNumber'
 import AreaBetNumber from '@/components/objects/AreaBetNumber'
 import $io from '@/services/$io'
+import { calcBetTotal } from '@/utils/tools'
 import { store, actions } from '@/store/index'
 import cmd from '@/cmd'
 import cst from '@/cst'
+import chipType from '@/config/chipType'
 
 let betType = {
   banker: 0,
@@ -57,15 +59,15 @@ export default class Table extends WrapperContainerCenter {
     this._deskHover_bankerpair = new DeskHover('bankerpair')
     this._deskHover_player = new DeskHover('player')
 
-    this._betNumber_total = new TotalBetNumber(99954545)
-    this._betNumber_area_playerpair = new AreaBetNumber(99954545)
-    this._betNumber_area_playerking = new AreaBetNumber(99954545)
-    this._betNumber_area_tiepair = new AreaBetNumber(99954545)
-    this._betNumber_area_tie = new AreaBetNumber(99954545)
-    this._betNumber_area_bankerking = new AreaBetNumber(99954545)
-    this._betNumber_area_banker = new AreaBetNumber(99954545)
-    this._betNumber_area_bankerpair = new AreaBetNumber(99954545)
-    this._betNumber_area_player = new AreaBetNumber(99954545)
+    this._betNumber_total = new TotalBetNumber(0)
+    this._betNumber_area_playerpair = new AreaBetNumber(0)
+    this._betNumber_area_playerking = new AreaBetNumber(0)
+    this._betNumber_area_tiepair = new AreaBetNumber(0)
+    this._betNumber_area_tie = new AreaBetNumber(0)
+    this._betNumber_area_bankerking = new AreaBetNumber(0)
+    this._betNumber_area_banker = new AreaBetNumber(0)
+    this._betNumber_area_bankerpair = new AreaBetNumber(0)
+    this._betNumber_area_player = new AreaBetNumber(0)
     this._countdown = new Countdown()
     this._dealer = new Dealer()
 
@@ -126,6 +128,22 @@ export default class Table extends WrapperContainerCenter {
           break
       }
     })
+
+    store.subscribe(() => {
+      this.updateBetNumber(store.getState().betChip)
+    })
+  }
+
+  public updateBetNumber(betChip: any) {
+    this._betNumber_total.updateNumber(calcBetTotal(betChip))
+    this._betNumber_area_playerpair.updateNumber(betChip['ppair'])
+    this._betNumber_area_playerking.updateNumber(betChip['playerking'])
+    this._betNumber_area_tiepair.updateNumber(betChip['tiepair'])
+    this._betNumber_area_tie.updateNumber(betChip['tie'])
+    this._betNumber_area_bankerking.updateNumber(betChip['bankerking'])
+    this._betNumber_area_banker.updateNumber(betChip['banker'])
+    this._betNumber_area_bankerpair.updateNumber(betChip['bpair'])
+    this._betNumber_area_player.updateNumber(betChip['player'])
   }
 
   public setDeskhover(deskHoverType: string, opt: boolean) {

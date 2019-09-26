@@ -28,22 +28,22 @@ export default class Pokers extends WrapperContainerCenter {
     this._pokerWin = new PokerWin()
     this._pokerPoint = new PokerPoint(0)
 
-    setTimeout(() => {
-      setTimeout(() => {
-        this.addPoker(new Poker('Plum', 'A'))
-      }, 0)
-      setTimeout(() => {
-        this.addPoker(new Poker('Plum', 'A'))
-      }, 500)
-      setTimeout(() => {
-        this.addPoker(new Poker('Plum', 'A'))
-      }, 1000)
-      setTimeout(() => {
-        this.displayPokerPoint()
-        this.displayWin()
-        this.displayResult()
-      }, 3000);
-    }, 800)
+    // setTimeout(() => {
+    //   setTimeout(() => {
+    //     this.addPoker(new Poker('Plum', 'A'))
+    //   }, 0)
+    //   setTimeout(() => {
+    //     this.addPoker(new Poker('Plum', 'A'))
+    //   }, 500)
+    //   setTimeout(() => {
+    //     this.addPoker(new Poker('Plum', 'A'))
+    //   }, 1000)
+    //   setTimeout(() => {
+    //     this.displayPokerPoint()
+    //     this.displayWin()
+    //     this.displayResult()
+    //   }, 3000);
+    // }, 800)
 
     this.addChild(this._pokersWrapper)
     this.addChild(this._pokerPointWrapper)

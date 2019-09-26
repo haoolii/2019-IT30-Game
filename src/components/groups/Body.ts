@@ -90,6 +90,21 @@ export default class Body extends WrapperContainerCenter {
         case cst.TB_NTF_COUNTDOWN_STOP:
           this._betStatusntf.betNotifyEnd()
           break
+        case cst.TB_NTF_PI_RESULT:
+          store.dispatch(actions.updateBetChip({
+            betChip: {
+              banker: 0,
+              player: 0,
+              bankerking: 0,
+              playerking: 0,
+              tie: 0,
+              tiepair: 0,
+              bpair: 0,
+              ppair: 0
+            }
+          }))
+          this._chipsLayer.clearLayer()
+          break
       }
     })
 
