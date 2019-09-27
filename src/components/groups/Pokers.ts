@@ -34,6 +34,10 @@ export default class Pokers extends WrapperContainerCenter {
     this.addChild(this._pokerWinWrapper)
     this.addChild(this._pokerResultWrapper)
     this._pokersWrapper.setPosition({ animation: false }, 0, 150)
+
+    this._pokerWin.setAlpha(true, 0)
+    this._pokerPoint.setAlpha(true, 0)
+    this._pokerResultWrapper.setAlpha(true, 0)
   }
 
   public sendPoker(pokerConfig: keyof typeof pokerType, value: string) {
@@ -67,6 +71,7 @@ export default class Pokers extends WrapperContainerCenter {
 
   public displayPokerPoint() {
     this._pokerPointWrapper.removeChildren()
+    this._pokerPoint.setAlpha(true, 1)
     let score = 0
     for (let poker of this._pokerList) {
       score += poker.getPoint()
@@ -92,8 +97,9 @@ export default class Pokers extends WrapperContainerCenter {
     this._pokerPoint.setPosition({ animation: false }, pos[this._pokerList.length].x, pos[this._pokerList.length].y)
   }
 
-  public displayResult() {
+  public displayResult(result: string) {
     this._pokerResultWrapper.removeChildren()
+    this._pokerResultWrapper.setAlpha(true, 1)
     let pos: any = {
       '1': {
         x: 35,
@@ -108,13 +114,26 @@ export default class Pokers extends WrapperContainerCenter {
         y: 230
       }
     }
-    this._pokerResultWrapper.addChild(new PokerResult('tiepair'))
+    switch (result) {
+      case 'pair':
+        this._pokerResultWrapper.addChild(new PokerResult('pair'))
+        break
+      case 'king':
+        this._pokerResultWrapper.addChild(new PokerResult('king'))
+        break
+      case 'tiepair':
+        this._pokerResultWrapper.addChild(new PokerResult('tiepair'))
+        break
+      case 'tie':
+        this._pokerResultWrapper.addChild(new PokerResult('tie'))
+        break
+    }
     this._pokerResultWrapper.setPosition({ animation: false }, pos[this._pokerList.length].x, pos[this._pokerList.length].y)
   }
 
   public displayWin() {
     this._pokerWinWrapper.addChild(this._pokerWin)
-
+    this._pokerWin.setAlpha(true, 1)
     let pos: any = {
       '1': {
         x: -40,
@@ -139,17 +158,23 @@ export default class Pokers extends WrapperContainerCenter {
 
   public reset() {
     this._pokerList.map(e => {
-      e.removeChildren()
+      e.setAlpha(true, 0)
+      setTimeout(() => {
+        e.removeChildren()
+      }, 1000);
     })
     this._pokerList = []
-    this._pokerWin.removeChildren()
-    this._pokerPoint.removeChildren()
+
+    this._pokerWin.setAlpha(true, 0)
+    this._pokerPoint.setAlpha(true, 0)
+    this._pokerResultWrapper.setAlpha(true, 0)
   }
 
   public removeChildren() {
     super.removeChildren()
     this._pokerWin.removeChildren()
     this._pokerPoint.removeChildren()
+    this._pokerResultWrapper.removeChildren()
     this._pokerList.map(e => {
       e.removeChildren()
     })

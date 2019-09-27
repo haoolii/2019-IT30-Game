@@ -91,7 +91,7 @@ export default class Body extends WrapperContainerCenter {
           this._betStatusntf.betNotifyEnd()
           break
         case cst.TB_NTF_PI_RESULT:
-          this.piResult(data.poker_result)
+          this.piResult(data)
           // store.dispatch(actions.updateBetChip({
           //   betChip: {
           //     banker: 0,
@@ -129,15 +129,11 @@ export default class Body extends WrapperContainerCenter {
     })
   }
 
-  public async piResult(poker_result: any) {
-    let pokerPlayer = poker_result.player.slice()
-    let pokerBanker = poker_result.banker.slice()
-
-    setTimeout(() => {
-      this._pokersPlayer.reset()
-      this._pokersBanker.reset()
-    }, 8000)
-
+  public async piResult(data: any) {
+    let pokerPlayer = data.poker_result.player.slice()
+    let pokerBanker = data.poker_result.banker.slice()
+    let calcResult = data.calc_result
+    console.log(data)
     while (pokerPlayer.length || pokerBanker.length) {
       if (pokerPlayer.length) {
         let _player = pokerPlayer.splice(0, 1)[0]
@@ -150,6 +146,29 @@ export default class Body extends WrapperContainerCenter {
         await delay(1200)
       }
     }
+
+    await delay(1500)
+
+    this._pokersBanker.displayPokerPoint()
+    this._pokersPlayer.displayPokerPoint()
+
+    if (calcResult.bpair) { this._pokersBanker.displayResult('pair'); this._table.setDeskhover('bpair', true) }
+    if (calcResult.ppair) { this._pokersPlayer.displayResult('pair'); this._table.setDeskhover('ppair', true) }
+
+    if (calcResult.bankerking) { this._pokersBanker.displayResult('king'); this._table.setDeskhover('bankerking', true) }
+    if (calcResult.playerking) { this._pokersPlayer.displayResult('king'); this._table.setDeskhover('playerking', true) }
+
+    if (calcResult.tie) { this._pokersPlayer.displayResult('tie'); this._pokersBanker.displayResult('tie'); this._table.setDeskhover('tie', true) }
+    if (calcResult.tiepair) { this._pokersPlayer.displayResult('tiepair'); this._pokersBanker.displayResult('tiepair'); this._table.setDeskhover('tiepair', true) }
+
+    if (calcResult.banker) { this._pokersBanker.displayWin(); this._table.setDeskhover('banker', true) }
+    if (calcResult.player) { this._pokersPlayer.displayWin(); this._table.setDeskhover('player', true) }
+
+    await delay(10000)
+
+    this._table.resetHover()
+    this._pokersPlayer.reset()
+    this._pokersBanker.reset()
   }
 
   public betout(data: any) {

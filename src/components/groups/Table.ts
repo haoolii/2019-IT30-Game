@@ -146,6 +146,16 @@ export default class Table extends WrapperContainerCenter {
     this._betNumber_area_player.updateNumber(betChip['player'])
   }
 
+  public resetHover() {
+    this._deskHover_banker.setStatus(false)
+    this._deskHover_player.setStatus(false)
+    this._deskHover_bankerpair.setStatus(false)
+    this._deskHover_playerpair.setStatus(false)
+    this._deskHover_bankerking.setStatus(false)
+    this._deskHover_playerking.setStatus(false)
+    this._deskHover_tie.setStatus(false)
+    this._deskHover_tiepair.setStatus(false)
+  }
   public setDeskhover(deskHoverType: string, opt: boolean) {
     switch (deskHoverType) {
       case 'banker':
@@ -157,13 +167,13 @@ export default class Table extends WrapperContainerCenter {
       case 'bankerpair':
         this._deskHover_bankerpair.setStatus(opt)
         break
-      case 'playerpair':
+      case 'ppair':
         this._deskHover_playerpair.setStatus(opt)
         break
       case 'bankerking':
         this._deskHover_bankerking.setStatus(opt)
         break
-      case 'playerpair':
+      case 'bpair':
         this._deskHover_bankerpair.setStatus(opt)
         break
       case 'tie':
