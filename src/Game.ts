@@ -21,7 +21,7 @@ export default class Game {
     this._app.stage.addChild(this._game.getContainer())
     document.body.appendChild(this._app.view)
 
-    $io.initalSocket('http://localhost:3087')
+    $io.initalSocket(process.env.NODE_ENV === 'development' ? 'http://localhost:3087' : 'https://it30.herokuapp.com')
     $io.on('connect', () => {
       console.log('connect')
     })

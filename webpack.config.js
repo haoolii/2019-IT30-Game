@@ -2,13 +2,12 @@ const path = require("path")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const ASSET_PATH = process.env.ASSET_PATH || '/game';
 
 module.exports = {
   entry: "./src/App.ts",
   output: {
     filename: "bundle.js",
-    publicPath: process.env.NODE_ENV === 'production' ? ASSET_PATH : '/'
+    publicPath: process.env.NODE_ENV === 'production' ? '/game/' : '/'
   },
   // Enable sourcemaps for debugging webpack's output.
   devtool: "inline-source-map",
