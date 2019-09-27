@@ -117,7 +117,7 @@ function tounit(n: number) {
  * 相加兩個bet
  * @param {*} bet 投注object
  */
-var plusBet = function(a: any, b: any) {
+var plusBet = function (a: any, b: any) {
   var _bet = {
     banker: 0,
     player: 0,
@@ -143,7 +143,7 @@ var plusBet = function(a: any, b: any) {
  * 相減兩個bet
  * @param {*} bet 投注object
  */
-var minusBet = function(a: any, b: any) {
+var minusBet = function (a: any, b: any) {
   var _bet = {
     banker: 0,
     player: 0,
@@ -169,7 +169,7 @@ var minusBet = function(a: any, b: any) {
  * 計算投注總額
  * @param {*} bet 投注object
  */
-var calcBetTotal = function(bet: any) {
+var calcBetTotal = function (bet: any) {
   var total = 0
   total += Number(bet['banker'])
   total += Number(bet['player'])
@@ -182,6 +182,16 @@ var calcBetTotal = function(bet: any) {
   return total
 }
 
+/**
+ * 延遲
+ * @param {*} time 延遲時間
+ */
+var delay = function (time: number) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, time);
+  })
+}
+
 export {
   getRandom,
   toCurrency,
@@ -190,5 +200,6 @@ export {
   generateKey,
   plusBet,
   minusBet,
-  calcBetTotal
+  calcBetTotal,
+  delay
 }

@@ -7,7 +7,7 @@ import BetStatusNotify from '@/components/objects/BetStatusNotify'
 import ChipsLayer from '@/components/groups/ChipsLayer'
 import $io from '@/services/$io'
 import { store, actions } from '@/store/index'
-import { plusBet, calcBetTotal } from '@/utils/tools'
+import { plusBet, calcBetTotal, delay } from '@/utils/tools'
 import cmd from '@/cmd'
 import cst from '@/cst'
 import * as dat from 'dat.gui'
@@ -90,6 +90,22 @@ export default class Body extends WrapperContainerCenter {
         case cst.TB_NTF_COUNTDOWN_STOP:
           this._betStatusntf.betNotifyEnd()
           break
+        case cst.TB_NTF_PI_RESULT:
+          this.piResult(data.poker_result)
+          // store.dispatch(actions.updateBetChip({
+          //   betChip: {
+          //     banker: 0,
+          //     player: 0,
+          //     bankerking: 0,
+          //     playerking: 0,
+          //     tie: 0,
+          //     tiepair: 0,
+          //     bpair: 0,
+          //     ppair: 0
+          //   }
+          // }))
+          // this._chipsLayer.clearLayer()
+          break
       }
     })
 
@@ -111,6 +127,29 @@ export default class Body extends WrapperContainerCenter {
           break
       }
     })
+  }
+
+  public async piResult(poker_result: any) {
+    let pokerPlayer = poker_result.player.slice()
+    let pokerBanker = poker_result.banker.slice()
+
+    setTimeout(() => {
+      this._pokersPlayer.reset()
+      this._pokersBanker.reset()
+    }, 8000)
+
+    while (pokerPlayer.length || pokerBanker.length) {
+      if (pokerPlayer.length) {
+        let _player = pokerPlayer.splice(0, 1)[0]
+        this._pokersPlayer.sendPoker(_player.type, _player.symbol)
+        await delay(1200)
+      }
+      if (pokerBanker.length) {
+        let _banker = pokerBanker.splice(0, 1)[0]
+        this._pokersBanker.sendPoker(_banker.type, _banker.symbol)
+        await delay(1200)
+      }
+    }
   }
 
   public betout(data: any) {

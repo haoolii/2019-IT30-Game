@@ -4,6 +4,7 @@ import Poker from '@/components/objects/Poker'
 import PokerResult from '@/components/objects/PokerResult'
 import PokerPoint from '@/components/objects/PokerPoint'
 import PokerWin from '@/components/objects/PokerWin'
+import pokerType from '@/config/pokerType'
 import * as dat from 'dat.gui'
 
 export default class Pokers extends WrapperContainerCenter {
@@ -28,28 +29,15 @@ export default class Pokers extends WrapperContainerCenter {
     this._pokerWin = new PokerWin()
     this._pokerPoint = new PokerPoint(0)
 
-    setTimeout(() => {
-      setTimeout(() => {
-        this.addPoker(new Poker('Plum', 'A'))
-      }, 0)
-      setTimeout(() => {
-        this.addPoker(new Poker('Plum', 'A'))
-      }, 500)
-      setTimeout(() => {
-        this.addPoker(new Poker('Plum', 'A'))
-      }, 1000)
-      setTimeout(() => {
-        this.displayPokerPoint()
-        this.displayWin()
-        this.displayResult()
-      }, 3000);
-    }, 800)
-
     this.addChild(this._pokersWrapper)
     this.addChild(this._pokerPointWrapper)
     this.addChild(this._pokerWinWrapper)
     this.addChild(this._pokerResultWrapper)
     this._pokersWrapper.setPosition({ animation: false }, 0, 150)
+  }
+
+  public sendPoker(pokerConfig: keyof typeof pokerType, value: string) {
+    this.addPoker(new Poker(pokerConfig, value))
   }
 
   public addPoker(poker: Poker) {
@@ -147,6 +135,15 @@ export default class Pokers extends WrapperContainerCenter {
   public setFaipiPosition(x: number, y: number) {
     this._faiPiPos.x = x
     this._faiPiPos.y = y
+  }
+
+  public reset() {
+    this._pokerList.map(e => {
+      e.removeChildren()
+    })
+    this._pokerList = []
+    this._pokerWin.removeChildren()
+    this._pokerPoint.removeChildren()
   }
 
   public removeChildren() {
