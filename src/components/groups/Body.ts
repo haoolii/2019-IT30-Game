@@ -120,7 +120,6 @@ export default class Body extends WrapperContainerCenter {
     let pokerPlayer = data.poker_result.player.slice()
     let pokerBanker = data.poker_result.banker.slice()
     let calcResult = data.calc_result
-    console.log(data)
     while (pokerPlayer.length || pokerBanker.length) {
       if (pokerPlayer.length) {
         let _player = pokerPlayer.splice(0, 1)[0]
@@ -157,6 +156,18 @@ export default class Body extends WrapperContainerCenter {
     this._pokersPlayer.reset()
     this._pokersBanker.reset()
     this._chipsLayer.clearLayer()
+    store.dispatch(actions.updateBetChip({
+      betChip: {
+        banker: 0,
+        player: 0,
+        bankerking: 0,
+        playerking: 0,
+        tie: 0,
+        tiepair: 0,
+        bpair: 0,
+        ppair: 0
+      }
+    }))
   }
 
   public betout(data: any) {
