@@ -7,7 +7,7 @@ let $io = (function () {
   let timeout: number = 5000
   return {
     initalSocket: function (url: any) {
-      let data: any = localStorage.getItem('user') || { token: '1' }
+      let data: any = localStorage.getItem('user')
       token = JSON.parse(data).token
       $io = io(url, {
         query: {

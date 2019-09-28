@@ -69,7 +69,7 @@ export default class ChipsLayer extends WrapperContainerCenter {
     bet: betType
   ) {
     for (let b in bet) {
-      switch (b){
+      switch (b) {
         case 'banker':
           this.bcrTotal(pos, role, b, Number(bet[b]))
           break
@@ -142,7 +142,7 @@ export default class ChipsLayer extends WrapperContainerCenter {
     }
   }
 
-  public bcrStangerTotal(type: keyof typeof tableChips, total: number) {}
+  public bcrStangerTotal(type: keyof typeof tableChips, total: number) { }
 
   public bcrUserChip(
     type: keyof typeof tableChips,
@@ -275,14 +275,30 @@ export default class ChipsLayer extends WrapperContainerCenter {
 
   public clearLayer() {
     this._layer.removeChildren()
-    this._playerpair = { strangers: [], users: [] }
-    this._playerking = { strangers: [], users: [] }
-    this._tiepair = { strangers: [], users: [] }
-    this._tie = { strangers: [], users: [] }
-    this._bankerking = { strangers: [], users: [] }
-    this._banker = { strangers: [], users: [] }
-    this._bankerpair = { strangers: [], users: [] }
-    this._player = { strangers: [], users: [] }
+    this.clearAreaChip(this._playerpair)
+    this.clearAreaChip(this._playerking)
+    this.clearAreaChip(this._tiepair)
+    this.clearAreaChip(this._tie)
+    this.clearAreaChip(this._bankerking)
+    this.clearAreaChip(this._banker)
+    this.clearAreaChip(this._bankerpair)
+    this.clearAreaChip(this._player)
+
+    setTimeout(() => {
+      this._playerpair = { strangers: [], users: [] }
+      this._playerking = { strangers: [], users: [] }
+      this._tiepair = { strangers: [], users: [] }
+      this._tie = { strangers: [], users: [] }
+      this._bankerking = { strangers: [], users: [] }
+      this._banker = { strangers: [], users: [] }
+      this._bankerpair = { strangers: [], users: [] }
+      this._player = { strangers: [], users: [] }
+    }, 1000)
+  }
+
+  public clearAreaChip(Area: { strangers: Array<Chip>, users: Array<Chip> }) {
+    Area.users.map(e => e.setAlpha(true, 0))
+    Area.strangers.map(e => e.setAlpha(true, 0))
   }
 
   public removeChildren() {

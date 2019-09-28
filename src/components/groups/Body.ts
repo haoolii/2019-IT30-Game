@@ -92,19 +92,6 @@ export default class Body extends WrapperContainerCenter {
           break
         case cst.TB_NTF_PI_RESULT:
           this.piResult(data)
-          // store.dispatch(actions.updateBetChip({
-          //   betChip: {
-          //     banker: 0,
-          //     player: 0,
-          //     bankerking: 0,
-          //     playerking: 0,
-          //     tie: 0,
-          //     tiepair: 0,
-          //     bpair: 0,
-          //     ppair: 0
-          //   }
-          // }))
-          // this._chipsLayer.clearLayer()
           break
       }
     })
@@ -169,6 +156,7 @@ export default class Body extends WrapperContainerCenter {
     this._table.resetHover()
     this._pokersPlayer.reset()
     this._pokersBanker.reset()
+    this._chipsLayer.clearLayer()
   }
 
   public betout(data: any) {

@@ -7,6 +7,7 @@ import Casino from '@/components/groups/Casino'
 import Loading from '@/components/groups/Loading'
 import $io from '@/services/$io'
 import { store, actions } from '@/store/index'
+import { async } from 'q'
 
 export default class Game {
   private _app: PIXI.Application
@@ -70,14 +71,18 @@ export default class Game {
 
 
   private initalInfo() {
-    return new Promise((resolve, reject) => {
-      Promise.all([$io.REQ_USER_LOGIN(), $io.REQ_USER_TB_SITDOWN(), $io.REQ_USER_INFO()]).then((res: any) => {
-        console.log(res[0])
-        console.log(res[1])
-        console.log(res[2])
-        store.dispatch(actions.updateBalance({ balance: res[2].balance }))
-        resolve()
-      })
+    return new Promise(async (resolve, reject) => {
+      try {
+        setTimeout(async () => {
+          await $io.REQ_USER_LOGIN()
+          await $io.REQ_USER_TB_SITDOWN()
+          let userinfo: any = await $io.REQ_USER_INFO()
+          store.dispatch(actions.updateBalance({ balance: userinfo.balance }))
+          resolve()
+        }, 1000);
+      } catch (err) {
+        console.log(err)
+      }
     })
   }
   private loadInfo() {
