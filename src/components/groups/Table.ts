@@ -123,7 +123,8 @@ export default class Table extends WrapperContainerCenter {
           console.log('cst.TB_NTF_STR_QUIT')
           break
         case cst.TB_NTF_KICKOUT:
-          alert('被遊戲踢出！')
+          alert('三局未下注被遊戲踢出！')
+          window.location = <any>window.location.origin
           console.log('cst.TB_NTF_KICKOUT')
           break
       }
