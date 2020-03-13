@@ -1,6 +1,6 @@
 # 2019-IT30 三十天路邊賭場上線了！
 
-> 需邀搭配[2019-IT30-BCR](https://github.com/unnhao/2019-IT30-BCR)使用
+> 需要搭配[2019-IT30-BCR](https://github.com/unnhao/2019-IT30-BCR)使用
 
 ## Introduce
 
